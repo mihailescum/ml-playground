@@ -5,12 +5,12 @@ from sklearn.datasets import load_svmlight_file
 
 class UCIGasSensorDataset:
     GASES = {
-        1: "ethanol",
-        2: "ethylene",
-        3: "ammonia",
-        4: "acetaldehyde",
-        5: "acetone",
-        6: "toluene",
+        0: "ethanol",
+        1: "ethylene",
+        2: "ammonia",
+        3: "acetaldehyde",
+        4: "acetone",
+        5: "toluene",
     }
 
     def __init__(self):
@@ -36,7 +36,7 @@ class UCIGasSensorDataset:
                 f"data/batch{b}.dat", n_features=128, zero_based=False
             )
             df = pd.DataFrame(X.toarray(), columns=columns)
-            df["gas"] = y.astype(int)
+            df["gas"] = y.astype(int) - 1 # Make zero-based
             df["batch"] = b
             frames.append(df)
 
