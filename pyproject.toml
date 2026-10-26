@@ -1,0 +1,32 @@
+[project]
+name = "sensory-drift"
+version = "0.1.0"
+description = "Tabular foundation models on the UCI gas sensor array drift dataset"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.5",
+    "pandas>=2.3",
+    "scipy>=1.18",
+    "scikit-learn>=1.9",
+    "matplotlib>=3.11",
+    "seaborn>=0.13.2",
+    "umap-learn>=0.5.12",
+    "xgboost>=3.4",
+    "lightgbm>=4.6",
+    "tabpfn-client>=0.6.1",
+    "python-dotenv>=1.2",
+    "torch>=2.8",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29",
+    "ruff>=0.17",
+]
+
+[tool.uv]
+default-groups = ["dev"]
+package = false
+
+[tool.ruff]
+line-length = 88
